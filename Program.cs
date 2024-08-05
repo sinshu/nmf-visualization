@@ -33,14 +33,15 @@ static class Program
             heatmap.FlipVertically = true;
             heatmap.CellWidth = (double)frameShift / sampleRate;
             heatmap.CellHeight = (double)sampleRate / frameLength;
+            heatmap.CellAlignment = Alignment.LowerLeft;
             plot.XLabel("Time [s]");
             plot.YLabel("Frequency [Hz]");
-            plot.SavePng("demo.png", 400, 300);
+            plot.SavePng("demo.png", 800, 400);
         }
 
         var (w, h) = NonnegativeMatrixFactorization.GetInitialGuess(xs, 3, new Random(42));
 
-        for (var i = 0; i < 100; i++)
+        for (var i = 0; i < 1; i++)
         {
             var w2 = w.Map(x => 0.0);
             var h2 = h.Map(h => 0.0);
@@ -66,7 +67,7 @@ static class Program
             heatmap.CellHeight = (double)sampleRate / frameLength;
             plot.XLabel("Time [s]");
             plot.YLabel("Frequency [Hz]");
-            plot.SavePng("reconstructed.png", 400, 300);
+            plot.SavePng("reconstructed.png", 800, 400);
         }
     }
 }
