@@ -34,6 +34,7 @@ static class Program
             heatmap.CellWidth = (double)frameShift / sampleRate;
             heatmap.CellHeight = (double)sampleRate / frameLength;
             heatmap.CellAlignment = Alignment.LowerLeft;
+            heatmap.Colormap = new ScottPlot.Colormaps.Inferno();
             plot.XLabel("Time [s]");
             plot.YLabel("Frequency [Hz]");
             plot.SavePng("demo.png", 800, 400);
